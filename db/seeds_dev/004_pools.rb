@@ -24,6 +24,7 @@ user20 = User.find_by(id: 24)
 bookmaker1 = Bookmaker.find_by(id: 1)
 bookmaker2= Bookmaker.find_by(id: 2)
 bookmaker3 = Bookmaker.find_by(id: 3)
+bookmaker4 = Bookmaker.find_by(id: 7)
 
 game1 = Game.find_by(id: 1)
 game2 = Game.find_by(id: 2)
@@ -46,14 +47,14 @@ game18 = Game.find_by(id: 18)
 game19 = Game.find_by(id: 19)
 game20 = Game.find_by(id: 20)
 
-# Pool.find_or_create_by(
-#     users_id: user12.id,
-#     bookmakers_id: bookmaker3.id,
-#     games_id: game6.id,
-#     pred_first_team_score: Faker::Number.between(from: 0, to: 4),
-#     pred_second_team_score: Faker::Number.between(from: 0, to: 4),
-#     bet: Faker::Number.between(from: 100, to: 1000),
-# )
+Pool.find_or_create_by(
+    users_id: user20.id,
+    bookmakers_id: bookmaker3.id,
+    games_id: game1.id,
+    pred_first_team_score: Faker::Number.between(from: 0, to: 4),
+    pred_second_team_score: Faker::Number.between(from: 0, to: 4),
+    bet: Faker::Number.between(from: 100, to: 1000),
+)
 
 # Pool.find_or_create_by(
 #     users_id: user6.id,

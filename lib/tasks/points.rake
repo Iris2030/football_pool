@@ -3,33 +3,33 @@ namespace :check do
     desc "this task starts the game"
     task :game => :environment do
         puts "the game is about to begin!"
-        Pool.where("games_id = 4").find_each do |pool|
+        Pool.where("games_id = 1").find_each do |pool|
             pool.update(
                 first_team_score: 3,
                 second_team_score: 2
             )
         end
-        game = Game.find_by(id: 4)
-        pool = Pool.find_by(games_id: 4)
+        game = Game.find_by(id: 1)
+        pool = Pool.find_by(games_id: 1)
         if pool.first_team_score > pool.second_team_score
             puts "#{game.first_team_name} beat #{game.second_team_name}  #{pool.first_team_score}:#{pool.second_team_score} "
         else
             puts "#{game.second_team_name} beat #{game.first_team_name}  #{pool.second_team_score}:#{pool.first_team_score} "
         end
 
-        Pool.where("games_id = 7").find_each do |pool|
-            pool.update(
-                first_team_score: 1,
-                second_team_score: 4
-            )
-        end
-        game = Game.find_by(id: 7)
-        pool = Pool.find_by(games_id: 7)
-        if pool.first_team_score > pool.second_team_score
-            puts "#{game.first_team_name} beat #{game.second_team_name}  #{pool.first_team_score}:#{pool.second_team_score} "
-        else
-            puts "#{game.second_team_name} beat #{game.first_team_name}  #{pool.second_team_score}:#{pool.first_team_score} "
-        end
+        # Pool.where("games_id = 7").find_each do |pool|
+        #     pool.update(
+        #         first_team_score: 1,
+        #         second_team_score: 4
+        #     )
+        # end
+        # game = Game.find_by(id: 7)
+        # pool = Pool.find_by(games_id: 7)
+        # if pool.first_team_score > pool.second_team_score
+        #     puts "#{game.first_team_name} beat #{game.second_team_name}  #{pool.first_team_score}:#{pool.second_team_score} "
+        # else
+        #     puts "#{game.second_team_name} beat #{game.first_team_name}  #{pool.second_team_score}:#{pool.first_team_score} "
+        # end
     end
     
     desc "this task counts points"
