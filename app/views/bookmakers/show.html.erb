@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @bookmaker %>
+
+<div>
+  <%= link_to "Edit this bookmaker", edit_bookmaker_path(@bookmaker) %> |
+  <%= link_to "Back to bookmakers", bookmakers_path %>
+
+  <%= button_to "Destroy this bookmaker", @bookmaker, method: :delete %>
+</div>

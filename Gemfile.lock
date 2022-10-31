@@ -73,7 +73,6 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
-    calculator_by_ira (0.1.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -96,6 +95,8 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.11.0)
+    faker (2.23.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -120,19 +121,20 @@ GEM
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.6.0)
+    my_new_calculator (0.1.0)
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
       net-protocol
     net-protocol (0.1.3)
       timeout
-    net-smtp (0.3.2)
+    net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pg (1.4.4)
+    pg (1.3.5)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -221,13 +223,14 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  calculator_by_ira
   capybara
   debug
   devise
+  faker
   importmap-rails
   jbuilder
-  pg (~> 1.1)
+  my_new_calculator
+  pg (~> 1.3.3)
   puma (~> 5.0)
   rails (~> 7.0.4)
   selenium-webdriver

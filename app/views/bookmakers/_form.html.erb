@@ -1,0 +1,17 @@
+<%= form_with(model: bookmaker) do |form| %>
+  <% if bookmaker.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bookmaker.errors.count, "error") %> prohibited this bookmaker from being saved:</h2>
+
+      <ul>
+        <% bookmaker.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

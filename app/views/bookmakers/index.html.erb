@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Bookmakers</h1>
+
+<div id="bookmakers">
+  <% @bookmakers.each do |bookmaker| %>
+    <%= render bookmaker %>
+    <p>
+      <%= link_to "Show this bookmaker", bookmaker %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New bookmaker", new_bookmaker_path %>
