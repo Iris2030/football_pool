@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :pools
   resources :games
-  resources :bookmakers
   resources :teams
   root to: 'pages#home'
   devise_for :users

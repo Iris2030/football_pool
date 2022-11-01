@@ -3,33 +3,41 @@ namespace :check do
     desc "this task starts the game"
     task :game => :environment do
         puts "the game is about to begin!"
-        Pool.where("games_id = 1").find_each do |pool|
-            pool.update(
-                first_team_score: 3,
-                second_team_score: 2
-            )
-        end
-        game = Game.find_by(id: 1)
-        pool = Pool.find_by(games_id: 1)
-        if pool.first_team_score > pool.second_team_score
-            puts "#{game.first_team_name} beat #{game.second_team_name}  #{pool.first_team_score}:#{pool.second_team_score} "
-        else
-            puts "#{game.second_team_name} beat #{game.first_team_name}  #{pool.second_team_score}:#{pool.first_team_score} "
+        Game.find_by(id: 2) do |game|
+            # puts game.first_team_id
+            # game.first_team_score = 3
+            # game.second_team_score = 2
+            # game.save
+            # puts game
+            # game.update(
+            #     first_team_score: 3,
+            #     second_team_score: 2,
+            #     status: "ended"
+            # )
         end
 
-        # Pool.where("games_id = 7").find_each do |pool|
-        #     pool.update(
-        #         first_team_score: 1,
-        #         second_team_score: 4
-        #     )
-        # end
-        # game = Game.find_by(id: 7)
-        # pool = Pool.find_by(games_id: 7)
+        # game = Game.find_by(id: 1)
+        # # pool = Pool.find_by(game_id: 4)
         # if pool.first_team_score > pool.second_team_score
         #     puts "#{game.first_team_name} beat #{game.second_team_name}  #{pool.first_team_score}:#{pool.second_team_score} "
         # else
         #     puts "#{game.second_team_name} beat #{game.first_team_name}  #{pool.second_team_score}:#{pool.first_team_score} "
         # end
+        
+        Game.where("id = 2").find_each do |game|
+            puts game
+            game.update(
+                first_team_score: 1,
+                second_team_score: 4
+            )
+        end
+        game = Game.find_by(id: 6)
+        pool = Pool.find_by(game_id: 6)
+        if pool.first_team_score > pool.second_team_score
+            puts "#{game.first_team.name} beat #{game.second_team_name}  #{pool.first_team_score}:#{pool.second_team_score} "
+        else
+            puts "#{game.second_team_name} beat #{game.first_team_name}  #{pool.second_team_score}:#{pool.first_team_score} "
+        end
     end
     
     desc "this task counts points"
@@ -38,17 +46,17 @@ namespace :check do
             # puts pool.pred_first_team_score = pool.first_team_score
             result = 0
             if pool.pred_first_team_score == pool.first_team_score && pool.pred_second_team_score == pool.second_team_score
-                result += 3
+                result = 3
             elsif pool.pred_first_team_score == pool.first_team_score && pool.pred_second_team_score != pool.second_team_score
-                result += 2
+                result = 2
             elsif pool.pred_first_team_score != pool.first_team_score && pool.pred_second_team_score == pool.second_team_score
-                result += 2 
+                result = 2 
             elsif pool.pred_first_team_score > pool.first_team_score && pool.pred_second_team_score > pool.second_team_score
-                result += 1
+                result = 1
             elsif pool.pred_first_team_score < pool.first_team_score && pool.pred_second_team_score < pool.second_team_score
-                result += 1 
+                result = 1 
             else pool.pred_first_team_score != pool.first_team_score && pool.pred_second_team_score != pool.second_team_score
-                result +=0
+                result =0
             end
             pool.points = result
             pool.save
@@ -66,13 +74,13 @@ namespace :check do
         Pool.all.each do |pool|
             
             if pool.points == 3
-                winners1.push(pool.users_id)
+                winners1.push(pool.user_id)
                 
             elsif pool.points == 2
-                winners2.push(pool.users_id)
+                winners2.push(pool.user_id)
                 
             elsif pool.points == 1
-                winners3.push(pool.users_id)
+                winners3.push(pool.user_id)
                 
             end
             
@@ -87,13 +95,13 @@ namespace :check do
             winners2.each do |winner|
                 user = User.find_by(id: winner)
                 puts "Our winner : #{user.first_name} #{user.last_name }!"
-
+                
             end
         else 
             winners3.each do |winner|
                 user = User.find_by(id: winner)
                 puts "Our winner : #{user.first_name} #{user.last_name }!"
-
+                
             end
         end
         
