@@ -10,9 +10,10 @@
     <p>
       <%= link_to "Show this game", game %>
     </p>
+<%= link_to "Add score", add_score_game_url(game) %>
+<%= link_to "Update game", edit_game_path(game) %>
   <% end %>
 </div>
 
 <%= link_to "New game", new_game_path %>
-<%# <%= link_to "Update game", edit_game_path(@game) %> %>
-<%# <%= link_to "Add score", add_score_game_path(@game) %> %>
+

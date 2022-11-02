@@ -19,6 +19,10 @@ class PoolsController < ApplicationController
   def edit
   end
 
+  def edit_bet
+    @pool = Pool.find(params[:id])
+  end
+
   # POST /pools or /pools.json
   def create
     @pool = Pool.new(pool_params)
@@ -65,6 +69,6 @@ class PoolsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pool_params
-      params.fetch(:pool, {})
+      params.fetch(:pool, {}).permit(:id, :pred_first_team_score, :pred_second_team_score, :points)
     end
 end

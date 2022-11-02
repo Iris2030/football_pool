@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    devise :database_authenticatable, :registerable
     validates :first_name, presence: true
     validates :last_name, presence: true
     
@@ -17,5 +18,3 @@ class User < ApplicationRecord
     
     has_many :pools
 end
-
-

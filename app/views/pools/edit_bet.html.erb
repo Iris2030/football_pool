@@ -1,0 +1,26 @@
+<h1>Add score </h1>
+
+<%= form_with model: @pool do |form| %>
+
+
+<div>
+<%= form.label :pred_first_team_score %> <br>
+<%= form.text_field :pred_first_team_score %> 
+</div>
+
+<div>
+<%= form.label :pred_second_team_score %> <br>
+<%= form.text_field :pred_second_team_score %> 
+</div>
+
+
+<%= form.submit%>
+
+
+
+<% end %>
+
+<div>
+  <%= link_to "Show this game", @game %> |
+  <%= link_to "Back to games", games_path %>
+</div>

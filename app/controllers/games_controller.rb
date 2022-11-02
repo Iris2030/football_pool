@@ -22,7 +22,7 @@ format.json {render json: @games, status: 404}
 
   def show_scoreboard
     @games = Game.all
-    
+
     respond_to do |format|
       format.html
       format.xml {render xml: @games}
@@ -72,15 +72,6 @@ format.json {render json: @games, status: 404}
 
   def add_score
     @game = Game.find(params[:id])
-    # respond_to do |format|
-    #   if @game.update(game_params)
-    #     format.html { redirect_to game_url(@game), notice: "Game was successfully updated." }
-    #     format.json { render :show, status: :ok, location: @game }
-    #   else
-    #     format.html { render :edit, status: :unprocessable_entity }
-    #     format.json { render json: @game.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # DELETE /games/1 or /games/1.json

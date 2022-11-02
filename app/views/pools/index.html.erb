@@ -5,9 +5,12 @@
 <div id="pools">
   <% @pools.each do |pool| %>
     <%= render pool %>
+        <li>    <%= "#{pool.id} pool" %>
+    </li>
     <p>
       <%= link_to "Show this pool", pool %>
     </p>
+<%= link_to "Put a bet", edit_bet_pool_path(pool, params: {id: 1}) %>
   <% end %>
 </div>
 
