@@ -17,9 +17,10 @@ class Game < ApplicationRecord
     has_many :pools
 
 
-    has_one :first_team, foreign_key: "first_team_id"
-    has_one :second_team, foreign_key: "second_team_id"
+    belongs_to :first_team, class_name: "Team", foreign_key: "first_team_id"
+    belongs_to :second_team, class_name: "Team", foreign_key: "second_team_id"
 
+# belongs_to :first_team, foreign_key: "first_team_id"
 
 
 

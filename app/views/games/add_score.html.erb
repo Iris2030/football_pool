@@ -1,22 +1,17 @@
-<h1>Editing game</h1>
+<h1>Add score</h1>
 
 <%= form_with model: @game do |form|%>
 
+
 <div>
-<%= form.label :date %> <br>
-<%= form.date_field :date %> 
+<%= form.label :first_team_score %> <br>
+<%= form.text_field :first_team_score %> 
 </div>
 
 <div>
-<%= form.label :first_team_id%> <br>
-<%= form.text_field :first_team_id %> 
+<%= form.label :second_team_score %> <br>
+<%= form.text_field :second_team_score %> 
 </div>
-
-<div>
-<%= form.label :second_team_id%> <br>
-<%= form.text_field :second_team_id %> 
-</div>
-
 
 <div>
 <%= form.label :status %> <br>

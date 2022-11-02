@@ -1,13 +1,33 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[ show edit update destroy ]
+  after_action :hello, only: %i[ index ]
 
   # GET /games or /games.json
   def index
     @games = Game.all
+
+    respond_to do |format|
+format.html
+format.xml {render xml: @games}
+format.json {render json: @games, status: 404}
+    end
+
   end
 
   # GET /games/1 or /games/1.json
   def show
+
+    puts (params[:first_team_score])
+  end
+
+  def show_scoreboard
+    @games = Game.all
+    
+    respond_to do |format|
+      format.html
+      format.xml {render xml: @games}
+      format.json {render json: @games, status: 404}
+          end
   end
 
   # GET /games/new
@@ -17,11 +37,14 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
+    @game = Game.find(params[:id])
   end
 
   # POST /games or /games.json
   def create
     @game = Game.new(game_params)
+
+    puts (params[:first_team_id])
 
     respond_to do |format|
       if @game.save
@@ -47,6 +70,19 @@ class GamesController < ApplicationController
     end
   end
 
+  def add_score
+    @game = Game.find(params[:id])
+    # respond_to do |format|
+    #   if @game.update(game_params)
+    #     format.html { redirect_to game_url(@game), notice: "Game was successfully updated." }
+    #     format.json { render :show, status: :ok, location: @game }
+    #   else
+    #     format.html { render :edit, status: :unprocessable_entity }
+    #     format.json { render json: @game.errors, status: :unprocessable_entity }
+    #   end
+    # end
+  end
+
   # DELETE /games/1 or /games/1.json
   def destroy
     @game.destroy
@@ -63,8 +99,13 @@ class GamesController < ApplicationController
       @game = Game.find(params[:id])
     end
 
+    def hello
+      puts "Hello!"
+      
+    end
+
     # Only allow a list of trusted parameters through.
     def game_params
-      params.fetch(:game, {})
+      params.fetch(:game, {}).permit(:id, :date, :first_team_id, :second_team_id, :first_team_score, :second_team_score, :status)
     end
 end

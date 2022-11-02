@@ -3,59 +3,39 @@ namespace :check do
     desc "this task starts the game"
     task :game => :environment do
         puts "the game is about to begin!"
-        Game.find_by(id: 2) do |game|
-            # puts game.first_team_id
-            # game.first_team_score = 3
-            # game.second_team_score = 2
-            # game.save
-            # puts game
-            # game.update(
-            #     first_team_score: 3,
-            #     second_team_score: 2,
-            #     status: "ended"
-            # )
-        end
-
-        # game = Game.find_by(id: 1)
-        # # pool = Pool.find_by(game_id: 4)
-        # if pool.first_team_score > pool.second_team_score
-        #     puts "#{game.first_team_name} beat #{game.second_team_name}  #{pool.first_team_score}:#{pool.second_team_score} "
-        # else
-        #     puts "#{game.second_team_name} beat #{game.first_team_name}  #{pool.second_team_score}:#{pool.first_team_score} "
-        # end
         
-        Game.where("id = 2").find_each do |game|
-            puts game
+        Game.where("id = 1").find_each do |game|
             game.update(
                 first_team_score: 1,
                 second_team_score: 4
             )
         end
-        game = Game.find_by(id: 6)
-        pool = Pool.find_by(game_id: 6)
-        if pool.first_team_score > pool.second_team_score
-            puts "#{game.first_team.name} beat #{game.second_team_name}  #{pool.first_team_score}:#{pool.second_team_score} "
-        else
-            puts "#{game.second_team_name} beat #{game.first_team_name}  #{pool.second_team_score}:#{pool.first_team_score} "
-        end
+
+        # game = Game.find_by(id: 1)
+        # if game.first_team_score > game.second_team_score
+        #     puts "#{game.first_team.name} beat #{game.second_team.name}  #{game.first_team_score}:#{game.second_team_score} "
+        # else
+        #     puts "#{game.second_team.name} beat #{game.first_team.name}  #{game.second_team_score}:#{game.first_team_score} "
+        # end
     end
     
     desc "this task counts points"
     task :points => :environment do
         Pool.all.each do |pool|
-            # puts pool.pred_first_team_score = pool.first_team_score
+            game = Game.find_by(id: 1)
+
             result = 0
-            if pool.pred_first_team_score == pool.first_team_score && pool.pred_second_team_score == pool.second_team_score
+            if pool.pred_first_team_score == game.first_team_score && pool.pred_second_team_score == game.second_team_score
                 result = 3
-            elsif pool.pred_first_team_score == pool.first_team_score && pool.pred_second_team_score != pool.second_team_score
+            elsif pool.pred_first_team_score == game.first_team_score && pool.pred_second_team_score != game.second_team_score
                 result = 2
-            elsif pool.pred_first_team_score != pool.first_team_score && pool.pred_second_team_score == pool.second_team_score
+            elsif pool.pred_first_team_score != game.first_team_score && pool.pred_second_team_score == game.second_team_score
                 result = 2 
-            elsif pool.pred_first_team_score > pool.first_team_score && pool.pred_second_team_score > pool.second_team_score
+            elsif pool.pred_first_team_score > game.first_team_score && pool.pred_second_team_score > game.second_team_score
                 result = 1
-            elsif pool.pred_first_team_score < pool.first_team_score && pool.pred_second_team_score < pool.second_team_score
+            elsif pool.pred_first_team_score < game.first_team_score && pool.pred_second_team_score < game.second_team_score
                 result = 1 
-            else pool.pred_first_team_score != pool.first_team_score && pool.pred_second_team_score != pool.second_team_score
+            else pool.pred_first_team_score != game.first_team_score && pool.pred_second_team_score != game.second_team_score
                 result =0
             end
             pool.points = result

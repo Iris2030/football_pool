@@ -16,13 +16,9 @@ team4 = Team.find_by(id: 4)
 #     first_team_id: team3.id,
 #     second_team_id: team4.id
 
-# )
+# # )
 
-# game = Game.find_by(id: 1)
+game = Game.find_by(id: 1)
 
-# game.update(
-#     first_team_score: 3,
-#     second_team_score: 2,
-#     status: "ended"
-# )
-# game.save
+puts game.first_team
+

@@ -5,6 +5,8 @@
 <div id="games">
   <% @games.each do |game| %>
     <%= render game %>
+    <li>    <%= "#{game.first_team.name} vs #{game.second_team.name}" %>
+    </li>
     <p>
       <%= link_to "Show this game", game %>
     </p>
@@ -12,3 +14,5 @@
 </div>
 
 <%= link_to "New game", new_game_path %>
+<%# <%= link_to "Update game", edit_game_path(@game) %> %>
+<%# <%= link_to "Add score", add_score_game_path(@game) %> %>

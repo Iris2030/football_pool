@@ -1,7 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @game %>
-
+   <p>
+      <%= "Match #{@game.first_team.name} vs #{@game.second_team.name}" %>
+    </p>
 <div>
   <%= link_to "Edit this game", edit_game_path(@game) %> |
   <%= link_to "Back to games", games_path %>
