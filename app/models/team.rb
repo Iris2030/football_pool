@@ -1,6 +1,10 @@
 class Team < ApplicationRecord
     validates :name, presence: true
 
+    has_one_attached :logo
+    has_one_attached :team_photo
+
+
     # belongs_to :game, optional: true
     has_many :games
 

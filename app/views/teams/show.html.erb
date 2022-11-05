@@ -2,9 +2,25 @@
 
 <%= render @team %>
 
-<div>
-  <%= link_to "Edit this team", edit_team_path(@team) %> |
+   <p style=" font-size: 20px; font-weight: bold">
+      <%= "#{@team.name}"  %>
+    </p>
+    
+    <%# <% if @team.logo.attached?%> %>
+    <%= image_tag url_for(@team.logo)%>
+    <%# <% end %> %>
+
+    <%# <% if @team.team_photo.attached?%> %>
+    <%= image_tag url_for(@team.team_photo)%>
+    <%# <% end %> %>
+
+    <%# <%= image_tag url_for(@team.logo) %> %>
+
+
+ <p style="list-style: none; font-size: 25px; font-weight: bold">
+  <%= button_to "Destroy this team", @team, method: :delete %>
+</p>
   <%= link_to "Back to teams", teams_path %>
 
-  <%= button_to "Destroy this team", @team, method: :delete %>
 </div>
+

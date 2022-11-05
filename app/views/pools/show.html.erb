@@ -2,6 +2,20 @@
 
 <%= render @pool %>
 
+<ul style="font-size: 20px">
+<li>  <%= " Pool number: #{@pool.id}"%></li>
+<li>  <%= "User name:  #{@pool.user.first_name} #{@pool.user.last_name}"%></li>
+<li>   <%= "Game: #{@pool.game.first_team.name} vs #{@pool.game.second_team.name}" %> </li>
+<li>  <%= "User bet:  #{@pool.game.first_team.name} score: #{@pool.pred_first_team_score} / #{@pool.game.second_team.name} score: #{@pool.pred_second_team_score}"%></li> 
+<li>  <%= @pool.points ? "User points:  #{@pool.points} " : "User points: -- " %></li>
+
+    
+   
+     
+     
+
+    </ul>
+
 <div>
   <%= link_to "Edit this pool", edit_pool_path(@pool) %> |
   <%= link_to "Back to pools", pools_path %>

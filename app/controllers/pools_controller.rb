@@ -69,6 +69,6 @@ class PoolsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pool_params
-      params.fetch(:pool, {}).permit(:id, :pred_first_team_score, :pred_second_team_score, :points)
+      params.fetch(:pool, {}).permit(:id,:user_id, :game_id, :pred_first_team_score, :pred_second_team_score, :points)
     end
 end

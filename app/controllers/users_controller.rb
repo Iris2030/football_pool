@@ -13,16 +13,21 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    puts "bkbjbjbbjkjbjkjkbjkjkjk"
   end
-
+  
   # GET /users/1/edit
   def edit
   end
-
-
+  
+  def edit_profile
+    @user = User.find(params[:id])
+  end
+  
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
+    UserMailer.with(user: @user).greeting_email.deliver_now
 
     respond_to do |format|
       if @user.save
@@ -66,6 +71,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {})
+      params.fetch(:user, {}).permit(:id, :email, :first_name, :last_name)
     end
 end

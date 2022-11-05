@@ -31,8 +31,3 @@
 
 # )
 
-team = Team.find_by(id: 1)
-
- team.update!(name: "Munich")
-# team.name = "sdkjasdkaj"
-# team.save

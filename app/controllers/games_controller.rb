@@ -72,6 +72,8 @@ format.json {render json: @games, status: 404}
 
   def add_score
     @game = Game.find(params[:id])
+    ScoringJob.perform_now()
+    
   end
 
   # DELETE /games/1 or /games/1.json

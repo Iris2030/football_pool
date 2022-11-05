@@ -19,6 +19,10 @@ class TeamsController < ApplicationController
   def edit
   end
 
+  def edit_team
+    @team = Team.find(params[:id])
+  end
+
   # POST /teams or /teams.json
   def create
     @team = Team.new(team_params)
@@ -65,6 +69,6 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.fetch(:team, {})
+      params.fetch(:team, {}).permit(:id, :name, :logo, :team_photo)
     end
 end

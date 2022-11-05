@@ -1,9 +1,34 @@
 <h1>New pool</h1>
 
-<%= render "form", pool: @pool %>
+<%= form_with model: @pool do |form|%>
 
-<br>
+<div>
+<%= form.label :user_id %> <br>
+<%= form.text_field :user_id %> 
+</div>
 
+<div>
+<%= form.label :game_id %> <br>
+<%= form.text_field :game_id %> 
+</div>
+
+<div>
+<%= form.label :pred_first_team_score %> <br>
+<%= form.text_field :pred_first_team_score %> 
+</div>
+
+<div>
+<%= form.label :pred_second_team_score %> <br>
+<%= form.text_field :pred_second_team_score %> 
+</div>
+
+
+<div>
+<%= form.submit%>
+
+</div> 
+
+<% end %>
 <div>
   <%= link_to "Back to pools", pools_path %>
 </div>

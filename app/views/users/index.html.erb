@@ -1,14 +1,48 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag "games.css"%>
 
-<h1>Users</h1>
+<div style="padding-left: 20px">
 
-<div id="users">
+<h1 class="header">Users</h1>
+
+<div class="users" id="users">
   <% @users.each do |user| %>
     <%= render user %>
-    <p>
+    <div class="wrapper">
+        <li class="team" style="list-style: none; font-size: 25px; font-weight: bold"> 
+           <%= user.first_name ? "#{user.first_name} #{user.last_name}" : "#{user.email}"  %>
+           </li>
+    <p style="text-decoration: none;font-size: 20px; color: black;display: inline-block">
       <%= link_to "Show this user", user %>
     </p>
+
+<p style=" display: inline-block; margin-right: 15px; border-radius: 5px; width: 100px; height: 30px; text-align: center"><%= link_to "Edit profile", edit_profile_user_path(user) %></p>
+<p style="display: inline-block;border-radius: 5px; width: 140px; height: 30px; text-align: center"><%=  link_to "Edit registration", edit_user_registration_path %></p>
+</div>
+
   <% end %>
 </div>
 
-<%= link_to "New user", new_user_path %>
+<div class="link_wrapper">
+<%if user_signed_in? %>
+<p style="list-style: none; font-size: 25px; font-weight: bold">
+<%= link_to "Sign out", destroy_user_session_path, method: :get %>
+</p>
+<% else %>
+<p style="list-style: none; font-size: 25px; font-weight: bold">
+<%= link_to "New user", new_user_registration_path %>
+</p>
+
+<p style="list-style: none; font-size: 25px; font-weight: bold">
+<%= link_to "Log in", user_session_path %>
+</p>
+
+
+<% end %>
+
+
+<p style="list-style: none; font-size: 25px; font-weight: bold">
+<%= link_to "Home page", root_path %>
+</p>
+
+</div>
+</div>

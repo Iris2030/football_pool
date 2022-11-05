@@ -22,8 +22,9 @@ namespace :check do
     desc "this task counts points"
     task :points => :environment do
         Pool.all.each do |pool|
-            game = Game.find_by(id: 1)
+            game = Game.find_by(id: 2)
 
+            # puts game.first_team.name +  game.second_team.name
             result = 0
             if pool.pred_first_team_score == game.first_team_score && pool.pred_second_team_score == game.second_team_score
                 result = 3

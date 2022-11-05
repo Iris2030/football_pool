@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     devise :database_authenticatable, :registerable
-    validates :first_name, presence: true
-    validates :last_name, presence: true
+    # validates :first_name, presence: true
+    # validates :last_name, presence: true
     
     
     before_create :message_before

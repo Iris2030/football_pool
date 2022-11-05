@@ -1,0 +1,33 @@
+<h1>Edit Team</h1>
+
+<%= form_with model: @team do |form|%>
+
+
+<div>
+<%= form.label "Team name" %> <br>
+<%= form.text_field :name %> 
+</div>
+
+<div>
+<%= form.label "Logo" %> <br>
+<%= form.file_field :logo %> 
+</div>
+
+<div>
+<%= form.label "Photo of the team" %> <br>
+<%= form.file_field :team_photo %> 
+</div>
+
+
+<div>
+<%= form.submit%>
+</div> 
+
+<% end %>
+
+<div>
+ <p style="list-style: none; font-size: 25px; font-weight: bold">
+  <%= link_to "Back to teams", teams_path %>
+</p>
+
+</div>

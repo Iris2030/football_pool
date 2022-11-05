@@ -18,7 +18,5 @@ team4 = Team.find_by(id: 4)
 
 # # )
 
-game = Game.find_by(id: 1)
 
-puts game.first_team
 

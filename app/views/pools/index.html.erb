@@ -1,17 +1,32 @@
+
+<%= stylesheet_link_tag "games.css"%>
 <p style="color: green"><%= notice %></p>
 
-<h1>Pools</h1>
+<h1 class="header">Pools</h1>
 
 <div id="pools">
   <% @pools.each do |pool| %>
     <%= render pool %>
-        <li>    <%= "#{pool.id} pool" %>
+<div class="wrapper">
+
+        <li class="team">    
+        <%= "#{pool.id} pool" %>
     </li>
-    <p>
+    <p style="text-decoration: none;font-size: 20px; color: black;display: inline-block">
       <%= link_to "Show this pool", pool %>
     </p>
-<%= link_to "Put a bet", edit_bet_pool_path(pool, params: {id: 1}) %>
+    <p style=" display: inline-block;font-size: 20px;  text-align: center">
+    <%= link_to "Put a bet", edit_bet_pool_path(pool) %>
+    </p>
+    
+</div>
   <% end %>
 </div>
-
+<div class="link_wrapper">
+<p style="list-style: none; font-size: 25px; font-weight: bold">
 <%= link_to "New pool", new_pool_path %>
+</p>
+<p style="list-style: none; font-size: 25px; font-weight: bold">
+<%= link_to "Home page", root_path %>
+</p>
+</div>

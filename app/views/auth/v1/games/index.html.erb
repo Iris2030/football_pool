@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag "games.css"%>
+
+<p style="color: green"><%= notice %></p>
+
+<h1 class="header" >Games</h1>
+
+<div id="games">
+  <% @games.each do |game| %>
+    <%= render api_v1_game_path %>
+    <div class="wrapper">
+    <li class="team">  
+      <%= "#{game.first_team.name} vs #{game.second_team.name}" %>
+    </li>
+    <p style="text-decoration: none;font-size: 20px; color: black; display: inline-block">
+      <%= link_to "Show this game", game %>
+    </p>
+    <div class="div_wrapper">
+    <p class="link" ><%= link_to "Add score", add_score_game_url(game) %></p>
+    <p style=" display: inline-block;border-radius: 5px; width: 100px; height: 30px; text-align: center"><%= link_to "Update game", edit_game_path(game) %></p>
+</div>
+
+</div>
+  <% end %>
+</div>
+<div class="link_wrapper">
+<p style="list-style: none; font-size: 25px; font-weight: bold">
+      <%= link_to "Show scoreboard", show_scoreboard_games_path %>
+    </p>
+
+<p style="list-style: none; font-size: 25px; font-weight: bold">
+<%= link_to "New game", new_game_path %>
+</p>
+<p style="list-style: none; font-size: 25px; font-weight: bold">
+<%= link_to "Home page", root_path %>
+</p>
+</div>
+
