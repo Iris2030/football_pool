@@ -1,26 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag "games.css"%>
 
 <%= render @team %>
 
-   <p style=" font-size: 20px; font-weight: bold">
+   <p  style=" font-size: 25px; font-weight: bold; text-align: center">
       <%= "#{@team.name}"  %>
     </p>
     
-    <%# <% if @team.logo.attached?%> %>
+    <% if @team.logo.attached?%>
     <%= image_tag url_for(@team.logo)%>
-    <%# <% end %> %>
+    <% end %>
 
-    <%# <% if @team.team_photo.attached?%> %>
+    <% if @team.team_photo.attached?%>
     <%= image_tag url_for(@team.team_photo)%>
-    <%# <% end %> %>
-
-    <%# <%= image_tag url_for(@team.logo) %> %>
+    <% end %>
 
 
- <p style="list-style: none; font-size: 25px; font-weight: bold">
-  <%= button_to "Destroy this team", @team, method: :delete %>
-</p>
-  <%= link_to "Back to teams", teams_path %>
 
+<div class="btn_wrapper">
+  <%= button_to "Destroy this team", @team, method: :delete, class:"btn" %>
+  </div>
 </div>
-
+<div class="link_wrapper_menu" style="margin-top: 30px">
+  <%= link_to "Back to teams", teams_path %>
+</div>

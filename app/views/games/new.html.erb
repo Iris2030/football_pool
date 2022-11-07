@@ -1,33 +1,31 @@
-<h1>New game</h1>
+<h1  class ="header">New game</h1>
 
 <%= form_with model: @game do |form|%>
 
-<div>
-<%= form.label :date %> <br>
-<%= form.date_field :date %> 
-</div>
+<div class="container">
+<%= form.label :date , class: "label"%> <br>
+<%= form.date_field :date, class: "input" %> 
 
-<div>
-<%= form.label :first_team_id %> <br>
-<%= form.text_field :first_team_id %> 
-</div>
 
-<div>
-<%= form.label :second_team_id %> <br>
-<%= form.text_field :second_team_id %> 
-</div>
+<%= form.label :first_team_id, class: "label" %> <br>
+<%= form.text_field :first_team_id, class: "input" %> 
 
-<div>
-<%= form.label :status %> <br>
-<%= form.text_field :status %> 
-</div>
 
-<div>
-<%= form.submit%>
+<%= form.label :second_team_id, class: "label" %> <br>
+<%= form.text_field :second_team_id, class: "input" %> 
 
-</div> 
+
+<%= form.label :status, class: "label" %> <br>
+<%= form.select :status, options_for_select(["ended", "expected"]), class: "input"  %> 
+
+
+<%= form.submit "Create Game", class: "btn"%>
+
+ 
 
 <% end %>
-<div>
+</div>
+
+<div class="link_wrapper_menu" style="margin-top: 29px ">
   <%= link_to "Back to games", games_path %>
 </div>

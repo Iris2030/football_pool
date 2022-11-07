@@ -1,24 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag "games.css"%>
+<h1 class="header">Pool details</h1>
+
 
 <%= render @pool %>
 
-<ul style="font-size: 20px">
-<li>  <%= " Pool number: #{@pool.id}"%></li>
-<li>  <%= "User name:  #{@pool.user.first_name} #{@pool.user.last_name}"%></li>
-<li>   <%= "Game: #{@pool.game.first_team.name} vs #{@pool.game.second_team.name}" %> </li>
-<li>  <%= "User bet:  #{@pool.game.first_team.name} score: #{@pool.pred_first_team_score} / #{@pool.game.second_team.name} score: #{@pool.pred_second_team_score}"%></li> 
-<li>  <%= @pool.points ? "User points:  #{@pool.points} " : "User points: -- " %></li>
-
-    
-   
-     
-     
-
+<ul class="list">
+<li class="list_i">  <%= " Pool number: #{@pool.id}"%></li>
+<li class="list_i">  <%= "User name:  #{@pool.user.first_name} #{@pool.user.last_name}"%></li>
+<li class="list_i">   <%= "Game: #{@pool.game.first_team.name} vs #{@pool.game.second_team.name}" %> </li>
+<li class="list_i">  <%= "User bet:  #{@pool.game.first_team.name} score: #{@pool.pred_first_team_score} / #{@pool.game.second_team.name} score: #{@pool.pred_second_team_score}"%></li> 
+<li class="list_i">  <%= @pool.points ? "User points:  #{@pool.points} " : "User points: -- " %></li>
     </ul>
 
-<div>
-  <%= link_to "Edit this pool", edit_pool_path(@pool) %> |
+  <%= button_to "Destroy this pool", @pool, method: :delete , class: "btn_pool"%>
+
+<div class="link_wrapper_menu">
+  <%= link_to "Edit this pool", edit_pool_path(@pool) %> 
   <%= link_to "Back to pools", pools_path %>
 
-  <%= button_to "Destroy this pool", @pool, method: :delete %>
 </div>

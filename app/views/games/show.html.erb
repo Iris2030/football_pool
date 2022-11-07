@@ -6,7 +6,11 @@
     </p>
 <div>
 
-<div class="link_wrapper">
+<div class="btn_wrapper">
+ <%=button_to "Destroy this game", @game, method: :delete, class:"btn" %>
+</div>
+
+<div class="link_wrapper" style="margin-top:30px">
    <p style="list-style: none; font-size: 25px; font-weight: bold">
   <%= link_to "Edit this game", edit_game_path(@game) %> 
 </p>
@@ -15,8 +19,5 @@
   <%= link_to "Back to games", games_path %>
 </p>
 </div>
- <p class="button" style="margin-lift: 50px">
- <%=button_to "Destroy this game", @game, method: :delete %>
-</p>
 
 </div>

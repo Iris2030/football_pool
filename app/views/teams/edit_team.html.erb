@@ -1,33 +1,26 @@
-<h1>Edit Team</h1>
+<h1 class ="header">Edit Team</h1>
 
 <%= form_with model: @team do |form|%>
 
 
-<div>
-<%= form.label "Team name" %> <br>
-<%= form.text_field :name %> 
-</div>
 
-<div>
-<%= form.label "Logo" %> <br>
-<%= form.file_field :logo %> 
-</div>
+<div class="container">
+<%= form.label "Team name", class: "label" %> <br>
+<%= form.text_field :name , class: "input"%> 
 
-<div>
-<%= form.label "Photo of the team" %> <br>
-<%= form.file_field :team_photo %> 
-</div>
+<%= form.label "Logo", class: "label" %> <br>
+<%= form.file_field :logo, class: "input" %> 
 
+<%= form.label "Photo of the team", class: "label" %> <br>
+<%= form.file_field :team_photo, class: "input" %> 
 
-<div>
-<%= form.submit%>
-</div> 
+<%= form.submit "Submit", class: "btn"%>
+
 
 <% end %>
+</div>
 
-<div>
- <p style="list-style: none; font-size: 25px; font-weight: bold">
+<div class="link_wrapper_menu " style="margin-top:30px">
   <%= link_to "Back to teams", teams_path %>
-</p>
 
 </div>

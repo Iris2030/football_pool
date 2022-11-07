@@ -1,39 +1,43 @@
-<h2>Sign up</h2>
+<h2 class="header">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="container">
+    <%= f.label :email, class: "label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+
   
-    <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
+    
+    <%= f.label :first_name, class: "label" %><br />
+    <%= f.text_field :first_name, autofocus: true, class: "input"%>
 
-    <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
+    
+    <%= f.label :last_name, class: "label" %><br />
+    <%= f.text_field :last_name, autofocus: true, class: "input" %>
+
+
+
+    <%= f.label :password, class: "label" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+
+
+    <%= f.label :password_confirmation, class: "label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <%= f.submit "Sign up", class: "btn"%>
 <% end %>
-
+  </div>
+  
+</div>
+<div class="link_wrapper_menu" style="margin-top: 30px">
 <%= render "devise/shared/links" %>
+  <%= link_to "Back to users", users_path %>
+</div>

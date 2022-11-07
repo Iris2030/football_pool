@@ -1,29 +1,29 @@
-<h1>Edit Profile</h1>
+<%= stylesheet_link_tag "games.css"%>
+
+<h1  class ="header">Edit Profile</h1>
 
 <%= form_with model: @user do |form|%>
 
 
-<div>
-<%= form.label :first_name %> <br>
-<%= form.text_field :first_name %> 
-</div>
-
-<div>
-<%= form.label :last_name %> <br>
-<%= form.text_field :last_name %> 
-</div>
+<div class="container">
+<%= form.label :first_name, class: "label"  %> <br>
+<%= form.text_field :first_name, class: "input" %> 
 
 
-<div>
-<%= form.submit%>
+<%= form.label :last_name, class: "label"  %> <br>
+<%= form.text_field :last_name, class: "input" %> 
 
-</div> 
+
+
+<%= form.submit "Submit", class: "btn"%>
+ 
 
 <% end %>
+</div>
 
-<div>
+
+<div class="link_wrapper_menu">
  <p style="list-style: none; font-size: 25px; font-weight: bold">
   <%= link_to "Back to users", users_path %>
 </p>
-
 </div>

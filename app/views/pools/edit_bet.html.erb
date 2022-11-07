@@ -1,25 +1,24 @@
-<h1>Add score </h1>
+<h1 class="header">Add score </h1>
 
 <%= form_with model: @pool do |form| %>
 
 
-<div>
-<%= form.label :pred_first_team_score %> <br>
-<%= form.text_field :pred_first_team_score %> 
-</div>
+<div class="container">
+<%= form.label "First team score", class: "label" %> <br>
+<%= form.text_field :pred_first_team_score, class: "input"  %> 
 
-<div>
-<%= form.label :pred_second_team_score %> <br>
-<%= form.text_field :pred_second_team_score %> 
-</div>
 
-<%= form.submit%>
+<%= form.label "Second team score", class: "label" %> <br>
+<%= form.text_field :pred_second_team_score, class: "input"  %> 
+
+<%= form.submit "Update Pool", class: "btn"%>
 
 
 
 <% end %>
 
-<div>
+</div>
+<div class="link_wrapper_menu">
 
    <p style="list-style: none; font-size: 25px; font-weight: bold">
   <%= link_to "Back to pools", pools_path %>

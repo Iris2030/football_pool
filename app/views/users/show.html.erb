@@ -1,15 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="header">User's details</h1>
 
 <%= render @user %>
-   <p style="font-size: 20px">
-      <%= " First name: #{@user.first_name}"%><br>
-   <%=  "Last name:  #{@user.last_name}"%><br>
-     <%="Email: #{@user.email} "%>
-    </p>
+   <ul class="list">
+   <li  class="list_i">      <%= " First name: #{@user.first_name}"%><br></li>
+   <li  class="list_i">   <%=  "Last name:  #{@user.last_name}"%><br></li>
+   <li  class="list_i">     <%="Email: #{@user.email} "%></li>
+    </ul>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= button_to "Destroy this user", @user, method: :delete, class: "btn_pool" %>
+
+<div class="link_wrapper_menu">
+  <%= link_to "Edit this user", edit_user_path(@user) %> 
   <%= link_to "Back to users", users_path %>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
 </div>

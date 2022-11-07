@@ -1,31 +1,28 @@
-<h1>Add score</h1>
+<h1 class="header">Add score</h1>
 
 <%= form_with model: @game do |form|%>
 
 
-<div>
-<%= form.label :first_team_score %> <br>
-<%= form.text_field :first_team_score %> 
-</div>
+<div class="container">
+<%= form.label :first_team_score, class: "label" %> <br>
+<%= form.text_field :first_team_score, class: "input" %> 
 
-<div>
-<%= form.label :second_team_score %> <br>
-<%= form.text_field :second_team_score %> 
-</div>
 
-<div>
-<%= form.label :status %> <br>
-<%= form.text_field :status %> 
-</div>
+<%= form.label :second_team_score , class: "label"%> <br>
+<%= form.text_field :second_team_score, class: "input" %> 
 
-<div>
-<%= form.submit%>
 
-</div> 
+<%= form.label :status, class: "label" %> <br>
+<%= form.select :status, options_for_select(["ended", "expected"]), class: "input" %> 
+
+
+<%= form.submit "Update Game", class: "btn"%>
+
+ 
 
 <% end %>
-
-<div>
-  <%= link_to "Show this game", @game %> |
+</div>
+<div class="link_wrapper_menu">
+  <%= link_to "Show this game", @game %> 
   <%= link_to "Back to games", games_path %>
 </div>

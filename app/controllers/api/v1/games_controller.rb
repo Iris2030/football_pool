@@ -1,33 +1,27 @@
-class GamesController < ApplicationController
+
+class Api::V1::GamesController < ApplicationController
   before_action :set_game, only: %i[ show edit update destroy ]
-  after_action :hello, only: %i[ index ]
   
-  # GET /games or /games.json
+  
   def index
     @games = Game.all
     
     respond_to do |format|
-      format.html
       format.xml {render xml: @games}
-      format.json {render json: @games, status: 404}
+      format.json {render json: @games, status: 200}
     end
-    
   end
   
-  # GET /games/1 or /games/1.json
+  
   def show
     @game = Game.find(params[:id])
-         end
-  
-  def show_scoreboard
-    @games = Game.all
     
     respond_to do |format|
-      format.html
-      format.xml {render xml: @games}
-      format.json {render json: @games, status: 404}
+      format.xml {render xml: @game}
+      format.json {render json: @game, status: 200}
     end
   end
+  
   
   # GET /games/new
   def new
@@ -41,16 +35,12 @@ class GamesController < ApplicationController
   
   # POST /games or /games.json
   def create
-    @game = Game.new(game_params)
-    
-    puts (params[:first_team_id])
+    @game = Game.new(game_api_params)
     
     respond_to do |format|
       if @game.save
-        format.html { redirect_to game_url(@game), notice: "Game was successfully created." }
-        format.json { render :show, status: :created, location: @game }
+        format.json { render json: @game, status: :created, location: @game }
       else
-        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
@@ -59,19 +49,18 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1 or /games/1.json
   def update
     respond_to do |format|
-      if @game.update(game_params)
-        format.html { redirect_to game_url(@game), notice: "Game was successfully updated." }
-        format.json { render :show, status: :ok, location: @game }
+      if @game.update(game_api_params)
+        format.json { render json: @game, status: :ok, location: @game }
       else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
+      # ScoringJob.perform_later()
     end
   end
   
   def add_score
     @game = Game.find(params[:id])
-    ScoringJob.perform_later()
+    # ScoringJob.perform_later()
     
   end
   
@@ -80,7 +69,6 @@ class GamesController < ApplicationController
     @game.destroy
     
     respond_to do |format|
-      format.html { redirect_to games_url, notice: "Game was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -91,13 +79,13 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
   
-  def hello
-    puts "Hello!"
-    
-  end
+  
   
   # Only allow a list of trusted parameters through.
-  def game_params
+  def game_api_params
     params.fetch(:game, {}).permit(:id, :date, :first_team_id, :second_team_id, :first_team_score, :second_team_score, :status)
   end
 end
+
+
+

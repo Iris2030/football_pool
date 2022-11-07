@@ -1,5 +1,12 @@
-Rails.application.routes.draw do
-  devise_for :users
+
+  Rails.application.routes.draw do
+    devise_for :users, controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations'
+
+    }
+
+
   
   resources :games do
     member do
@@ -31,14 +38,30 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users
+      resources :games 
+      resources :pools 
+      resources :teams 
     end
   end
 
-  namespace :api do
-    namespace :v1 do
-      resources :games
-    end
-  end
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :games 
+  #   end
+  # end
+
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :pools 
+  #   end
+  # end
+
+
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :teams 
+  #   end
+  # end
 
 
   resources :users

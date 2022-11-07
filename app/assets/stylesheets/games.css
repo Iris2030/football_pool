@@ -11,22 +11,22 @@
 }
 
 .link{
-     display: inline-block;
-      margin-right: 15px;
-       border-radius: 5px;
-        width: 100px; 
-        height: 30px; 
-        text-align: center
-
+    display: inline-block;
+    margin-right: 15px;
+    border-radius: 5px;
+    width: 100px; 
+    height: 30px; 
+    text-align: center
+    
 }
 
 .team{
     list-style: none;
-     font-size: 22px;
-font-weight: bold;
-width: 350px;
-text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -3px 0px 7px rgb(11, 61, 0), 0px 4px 7px rgba(81,67,21,0.8);
-color: white;
+    font-size: 22px;
+    font-weight: bold;
+    width: 350px;
+    text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -3px 0px 7px rgb(11, 61, 0), 0px 4px 7px rgba(81,67,21,0.8);
+    color: white;
 }
 
 .link_wrapper{
@@ -42,26 +42,128 @@ color: white;
     text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -3px 0px 7px rgb(11, 61, 0), 0px 4px 7px rgba(81,67,21,0.8);
 }
 
-.button{
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
+.btn{
+    margin-top: 25px;
+    width: 157px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    cursor: pointer; 
+
 }
 
-.button:hover,:focus{
-   /* margin-left: 600px; */
-    /* text-align: center;
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: rgba(239, 53, 56, 0.533) 0px 30px 60px -12px inset, rgba(255, 0, 0, 0.427) 0px 18px 36px -18px inset; */
-}
+/* .btn:hover,:focus{ */
+
+    /* text-align: center; */
+    /* cursor: pointer; */
+    /* box-shadow: rgba(239, 53, 56, 0.533) 0px 30px 60px -12px inset, rgba(255, 0, 0, 0.427) 0px 18px 36px -18px inset; */
+/* } */
 
 .header{
     text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -3px 0px 7px rgb(11, 61, 0), 0px 4px 7px rgba(81,67,21,0.8);
-color: white;
-text-align: center;
- margin-bottom: 50px; 
- font-size: 50px
+    color: white;
+    text-align: center;
+    margin-bottom: 50px; 
+    font-size: 50px
+}
+
+.input{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 150px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    border-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+input[type="text" i] {
+    padding:0 0 0 3px;
+}
+
+input[type="date" i] {
+    padding-inline-start: 0;
+    padding: 0 0 0 3px;
+}
+input[type="file" i] {
+    padding-inline-start: 0;
+    padding: 0 0 0 3px;
+    width: 180px;
+    height: 25px;
+    border-width: 1px;
+    border-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+select {
+    width: 157px;
+    height: 25px;
+    margin: 0em;
+    border-width: 1px;
+    border-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.container{
+    width: 160px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.link_wrapper_menu{
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px; 
+    padding-bottom: 5px;
+}
+
+.label{
+    font-size: 20px;
+    
+
+}
+.input_wrapper{
+margin-bottom: 10px;
+}
+
+.btn_wrapper{
+    width: 170px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.list_i{
+    list-style: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    /* text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -1px 0px 2px rgb(11, 61, 0), 0px 2px 3px rgba(81,67,21,0.8); */
+    margin-bottom: 5px;
+}
+
+.btn_pool{
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    width: 157px;
+    height: 30px;
+    /* margin-left: 700px; */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    outline: none;
+    border-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    cursor: pointer; 
+}
+
+.list{
+ text-align: center;
 }
