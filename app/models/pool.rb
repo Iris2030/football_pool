@@ -1,7 +1,7 @@
 class Pool < ApplicationRecord
 
-    validates :pred_first_team_score, presence: true
-    validates :pred_second_team_score, presence: true
+    validates :pred_first_team_score, presence: true, numericality: { only_integer: true }
+    validates :pred_second_team_score, presence: true, numericality: { only_integer: true }
     
 
 

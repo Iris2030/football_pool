@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.first_name = sign_up_params[:first_name]
     @user.last_name = sign_up_params[:last_name]
     @user.save
-    UserMailer.with(user: @user).greeting_email.deliver_now
+    # UserMailer.with(user: @user).greeting_email.deliver_now
   end
   
   # GET /resource/edit

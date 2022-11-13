@@ -10,14 +10,14 @@ namespace :check do
                 second_team_score: 4
             )
         end
-
-        # game = Game.find_by(id: 1)
-        # if game.first_team_score > game.second_team_score
-        #     puts "#{game.first_team.name} beat #{game.second_team.name}  #{game.first_team_score}:#{game.second_team_score} "
-        # else
-        #     puts "#{game.second_team.name} beat #{game.first_team.name}  #{game.second_team_score}:#{game.first_team_score} "
-        # end
     end
+
+    desc "this task starts the game"
+    task :user => :environment do
+puts current_user
+    end
+
+
     
     desc "this task counts points"
     task :points => :environment do

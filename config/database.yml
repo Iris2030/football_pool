@@ -14,9 +14,9 @@ development:
     password: <%= Rails.application.credentials.db[:password] %>
     port: <%= Rails.application.credentials.db.dig(:port) || 5432 %>
 
-# test:
-#     <<: *default
-#     database: <%= Rails.application.credentials.db[:database] %>
-#     username: <%= Rails.application.credentials.db[:username] %>
-#     password: <%= Rails.application.credentials.db[:password] %>
-#     port: <%= Rails.application.credentials.db[:port] %>
+test:
+    <<: *default
+    database: <%= Rails.application.credentials.db[:database] %>
+    username: <%= Rails.application.credentials.db[:username] %>
+    password: <%= Rails.application.credentials.db[:password] %>
+    port: <%= Rails.application.credentials.db[:port] %>

@@ -1,6 +1,7 @@
-
+require_relative "./application_api_controller"
 class Api::V1::GamesController < ApplicationController
   before_action :set_game, only: %i[ show edit update destroy ]
+    # before_action :authorize_req
   
   
   def index

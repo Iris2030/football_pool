@@ -1,10 +1,11 @@
 
   Rails.application.routes.draw do
-    devise_for :users, controllers: {
-      sessions: 'users/sessions',
-      registrations: 'users/registrations'
+    devise_for :users
+    # , controllers: {
+    #   sessions: 'users/sessions',
+    #   registrations: 'users/registrations'
 
-    }
+    # }
 
 
   
@@ -41,27 +42,13 @@
       resources :games 
       resources :pools 
       resources :teams 
+      get '/get_token', to: 'application_api#get_token'
+      post '/authorize_req', to: 'application_api#authorize_req'
     end
   end
 
-  # namespace :api do
-  #   namespace :v1 do
-  #     resources :games 
-  #   end
-  # end
-
-  # namespace :api do
-  #   namespace :v1 do
-  #     resources :pools 
-  #   end
-  # end
 
 
-  # namespace :api do
-  #   namespace :v1 do
-  #     resources :teams 
-  #   end
-  # end
 
 
   resources :users

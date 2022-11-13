@@ -1,6 +1,9 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[ show edit update destroy ]
-  after_action :hello, only: %i[ index ]
+
+  before_action :before_show, only: %i[ show ]
+
+  after_action :after_index, only: %i[ index ]
   
   # GET /games or /games.json
   def index
@@ -91,8 +94,13 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
   
-  def hello
-    puts "Hello!"
+  def after_index
+    puts "It's an index method"
+    
+  end
+
+  def before_show
+    puts "It's a show method"
     
   end
   

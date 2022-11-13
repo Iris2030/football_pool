@@ -1,4 +1,7 @@
 class Game < ApplicationRecord
+    scope :ended_games, -> {where(status: 'ended')}
+    scope :expected_games, -> {where(status: 'expected')}
+
     validates :first_team_id, presence: true
     validates :second_team_id, presence: true
     

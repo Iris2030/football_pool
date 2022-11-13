@@ -12,6 +12,6 @@ class CreateGames < ActiveRecord::Migration[7.0]
     add_foreign_key :games, :teams, column: :first_team_id
     add_foreign_key :games, :teams, column: :second_team_id
 
-
+ 
   end
 end
