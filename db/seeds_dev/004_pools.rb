@@ -18,12 +18,12 @@ game7 = Game.find_by(id: 7)
 # game8 = Game.find_by(id: 8)
 
 
-Pool.find_or_create_by(
-    user_id: user4.id,
-    game_id: game7.id,
-    pred_first_team_score: Faker::Number.between(from: 0, to: 4),
-    pred_second_team_score: Faker::Number.between(from: 0, to: 4),
-)
+# Pool.find_or_create_by(
+#     user_id: user4.id,
+#     game_id: game7.id,
+#     pred_first_team_score: Faker::Number.between(from: 0, to: 4),
+#     pred_second_team_score: Faker::Number.between(from: 0, to: 4),
+# )
 
 # Pool.find_or_create_by(
 #     user_id: user2.id,
